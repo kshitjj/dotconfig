@@ -9,12 +9,12 @@ get:
 	cp /home/kshitij/.config/eww ./.config/eww -r
 
 set:
-	mv  ./xkb/custom /usr/share/X11/xkb/symbols/custom
-	mv ./xkb/us /usr/share/X11/xkb/symbols/us
-	mv ./.zshrc /home/kshitij/.zshrc
-	mv ./.config/nvim /home/kshitij/.config/nvim -r
-	mv ./.config/alacritty /home/kshitij/.config/alacritty -r
-	mv ./.config/sway /home/kshitij/.config/sway -r
-	mv ./.config/eww /home/kshitij/.config/eww -r
+	cp -biv ./xkb/custom /usr/share/X11/xkb/symbols/custom
+	cp -biv ./xkb/us /usr/share/X11/xkb/symbols/us
+	cp -biv ./.zshrc /home/kshitij/.zshrc
+	cp -biv ./.config/nvim /home/kshitij/.config/nvim
+	cp -biv ./.config/alacritty /home/kshitij/.config/alacritty
+	cp -biv ./.config/sway /home/kshitij/.config/sway
+	cp -biv ./.config/eww /home/kshitij/.config/eww
 
 
