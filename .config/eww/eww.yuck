@@ -1,0 +1,74 @@
+;; Variables
+(defvar time-visible false)
+
+;; Polling Time
+(defpoll time 
+  :interval "1s"
+  :initial "initial-value"
+  :run-while time-visible
+  `date +"%B %d %H:%M:%S"`)
+
+;; Polling Workspace Information (using a custom script)
+(defpoll workspaces
+  :interval "1s"
+  :initial "initial-value"
+  `bash ~/.config/eww/scripts/workspace.sh`)  ;; Your custom workspace script
+
+;; Polling System Information using separate scripts
+
+(defpoll ram 
+  :interval "5s" 
+  `bash ~/.config/eww/scripts/get_ram.sh`)
+
+(defpoll cpu 
+  :interval "5s" 
+  `bash ~/.config/eww/scripts/get_cpu.sh`)
+
+(defpoll disk 
+  :interval "5s" 
+  `bash ~/.config/eww/scripts/get_disk.sh`)
+
+(defpoll battery 
+  :interval "5s" 
+  `bash ~/.config/eww/scripts/get_battery.sh`)
+
+(defwidget brightness []
+  (eventbox
+    :onscroll `sudo /home/kshitij/.config/eww/scripts/updatebrightness.sh {}`
+    (image :path "/home/kshitij/.config/eww/images/brightness.svg" :image-width 30 :image-height 30 :fill-svg "#FFFFFF")))
+;; Time Widget with Clickable Notification (in the center)
+(defwidget time []
+  (box
+    :halign "center"
+    :onclick "notify-send 'Current Time' `date`"  ;; Click to show a notification
+    "${time}"))
+
+;; Workspace Widget (on the left)
+(defwidget workspace []
+  (literal :content workspaces))
+
+;; System Information Widget (on the right)
+(defwidget system_info []
+  (box
+    :halign "right"
+    (label :text "${ram}")
+    (label :text "${cpu}")
+    (label :text "${disk}")
+    (label :text "${battery}")
+    (brightness)))
+
+;; Main Window Layout
+(defwindow powermenu
+  :class "bar"
+  :monitor 0
+  :geometry (geometry :x "0%" :y "0px" :width "100%" :height "3%" :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :reserve (struts :distance "40px" :side "top")
+  :wm-ignore false
+  (box
+    :style "background-color: #2e2e2e; color: #e0e0e0; padding: 5px;" ;; Dark mode background and text colors
+    (workspace)    ;; Left - Workspace widget
+    (time)         ;; Center - Time widget
+    (system_info))) ;; Right - System info
+

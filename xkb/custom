@@ -1,0 +1,30 @@
+default partial alphanumeric_keys
+xkb_symbols "capsmod" {
+  key <CAPS> { [ ISO_Level3_Shift                ] };
+};
+
+xkb_symbols "byebackspace" {
+  key <BKSP> { [ NoSymbol                        ] }; # TODO
+};
+
+xkb_symbols "dvp" {
+  # Add vim cursor keys to be accessed with AltGr (and some useful keys to AltGr+Shift)
+  key <AC03> { [ e, E, Escape                    ] };
+  key <AD07> { [ g, G, BackSpace                 ] }; # TODO
+  key <AB05> { [ x, X, Delete                    ] }; # TODO
+  key <AC06> { [ d, D, XF86AudioLowerVolume, braceleft     ] }; # TODO
+  key <AD05> { [ y, Y, XF86AudioRaiseVolume, braceright   ] }; # TODO
+  key <AD04> { [ p, P, XF86AudioMute, dollar      ] }; # TODO
+  key <AC07> { [ h, H, Left, dollar              ] };
+  key <AB03> { [ j, J, Down, dollar              ] };
+  key <AB04> { [ k, K, Up, asciitilde            ] };
+  key <AD10> { [ l, L, Right, asciitilde         ] };
+  # add numbers?
+};
+## TODO
+	# ADD LEVEL 3, 4 to QWERTY
+	# REMOVE BKSP AND ESC from the layout
+	# ADD Control_BackSpace to fourth level of AD07 which is g
+	# ADD Control_Delete to fourth level of AD08 which is c 
+	# ADD Copy, Paste and Cut
+

@@ -1,0 +1,35 @@
+; variables
+(defvar time-visible false)
+(defpoll time 
+	:interval "1s"
+	:initial "initial-value"
+	:run-while time-visible
+	`date +"%B %d %H:%M:%S"`)
+
+; window and widgets
+(defwindow powermenu
+	:monitor 0
+	:geometry (geometry :x "0%"
+		:y "0px"
+		:width "100%"
+		:height "3%"
+		:anchor "top center")
+	:stacking "fg"
+	:exclusive true
+	:reserve (struts :distance "40px" :side "top")
+	:wm-ignore false
+(workspace)
+(time))
+
+(defwidget time []
+	"${time}")
+; to do
+; workspace shit on the left
+;	workspaces different for each monitor
+;	workspaces with focus alert shit etc
+; time in the middlej onclick show notification feat songs, cause why not
+; on right
+;; show ram. disk, cpu, sound(pavucontrol ahh menu but onlf what i use), keyboard shit(for them normies), wifi(onclick all the options along with support for ethernet?), battery(onclick show graph, option for power consumption,etc), option to shetdown, restart, hibernate, suspend, etc, brightnessctl
+
+; Notes
+; 
