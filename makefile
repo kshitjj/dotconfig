@@ -12,9 +12,9 @@ set:
 	cp -biv ./xkb/custom /usr/share/X11/xkb/symbols/custom
 	cp -biv ./xkb/us /usr/share/X11/xkb/symbols/us
 	cp -biv ./.zshrc /home/kshitij/.zshrc
-	cp -biv ./.config/nvim /home/kshitij/.config/nvim
-	cp -biv ./.config/alacritty /home/kshitij/.config/alacritty
-	cp -biv ./.config/sway /home/kshitij/.config/sway
-	cp -biv ./.config/eww /home/kshitij/.config/eww
+	cp -rbiv ./.config/nvim /home/kshitij/.config/nvim
+	cp -rbiv ./.config/alacritty /home/kshitij/.config/alacritty
+	cp -rbiv ./.config/sway /home/kshitij/.config/sway
+	cp -rbiv ./.config/eww /home/kshitij/.config/eww
 
 
