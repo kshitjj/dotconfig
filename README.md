@@ -9,5 +9,6 @@ this dot file will contain my personal for the following
 ## Todo
 - [ ] Add hyprland config
 - [ ] zsh updated config
+- [ ] kitty?
 - [ ] all the other configs
 - [ ] Make a daemon with sound logic and either pulls or pushes updates and keeps everything tippy top.
