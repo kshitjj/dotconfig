@@ -10,14 +10,14 @@
 ## Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod1
+set $mod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty 
+set $term kitty 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -32,9 +32,9 @@ include /etc/sway/config-vars.d/*
 # output * 
 
 # display configuration (swaymsg -t get_outputs gets the available outputs)
-output HDMI-A-2 pos 1920 0 res 1920x1080@120.000Hz adaptive_sync on bg Wallpaper/chillSunset.jpg fill
+# output HDMI-A-2 pos 1920 0 res 1920x1080@120.000Hz adaptive_sync on bg Wallpaper/chillSunset.jpg fill
 # output HDMI-A-2 pos 1920 0 res 1920x1080@120.000Hz transform 90 adaptive_sync on bg Wallpaper/commie_vertical.png fill 
-output eDP-1 pos 0 0 res 1920x1080 bg Wallpaper/nicolaSamorisLOcchioOccidentale.jpg center
+# output eDP-1 pos 0 0 res 1920x1080 bg Wallpaper/nicolaSamorisLOcchioOccidentale.jpg center
 
 # Closed Display Mode
 set $laptop eDP-1
@@ -131,7 +131,7 @@ input type:keyboard {
     bindsym $mod+m opacity plus 0.2
 
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+t exec $term
 
     # Kill focused window
     bindsym $mod+q kill
