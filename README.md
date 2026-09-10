@@ -20,3 +20,5 @@ this dot file will contain my personal for the following
 - [ ] add install script for dependencies
 - [ ] write other stuff when you remember
 - [ ] add install script for the software you use.
+- [ ] Fix the "changing the workspaces" thing like you did with hyprland.
+- [ ] Try niri
