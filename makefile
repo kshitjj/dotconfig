@@ -9,12 +9,12 @@ get:
 	cp /home/kshitij/.config/eww ./.config/eww -r
 
 set:
-	cp -biv ./xkb/custom /usr/share/X11/xkb/symbols/custom
-	cp -biv ./xkb/us /usr/share/X11/xkb/symbols/us
 	cp -biv ./.zshrc /home/kshitij/.zshrc
 	cp -rbiv ./.config/nvim /home/kshitij/.config/
 	cp -rbiv ./.config/alacritty /home/kshitij/.config/
 	cp -rbiv ./.config/sway /home/kshitij/.config/
 	cp -rbiv ./.config/eww /home/kshitij/.config/
 
-
+sudo-set:
+	cp -biv ./xkb/custom /usr/share/X11/xkb/symbols/custom
+	cp -biv ./xkb/us /usr/share/X11/xkb/symbols/us

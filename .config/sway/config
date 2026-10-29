@@ -17,7 +17,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty 
+set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -32,7 +32,7 @@ include /etc/sway/config-vars.d/*
 # output * 
 
 # display configuration (swaymsg -t get_outputs gets the available outputs)
-# output HDMI-A-2 pos 1920 0 res 1920x1080@120.000Hz adaptive_sync on bg Wallpaper/chillSunset.jpg fill
+output DP-4 pos 0 0 res 1920x1080@165.000Hz adaptive_sync on bg Wallpaper/chillSunset.jpg fill
 # output HDMI-A-2 pos 1920 0 res 1920x1080@120.000Hz transform 90 adaptive_sync on bg Wallpaper/commie_vertical.png fill 
 # output eDP-1 pos 0 0 res 1920x1080 bg Wallpaper/nicolaSamorisLOcchioOccidentale.jpg center
 
@@ -44,17 +44,17 @@ bindswitch --reload --locked lid:off output $laptop enable
  floating_minimum_size 100 x 100
  gaps inner 10
  # default_border pixel 4
- corner_radius 8
- default_dim_inactive 0.1
+# corner_radius 8
+# default_dim_inactive 0.1
  titlebar_padding 10
  default_border normal
  mouse_warping container 
- titlebar_separator enable
+ # titlebar_separator enable
  
-for_window [app_id="Alacritty"] blur enable
-for_window [class="Google-chrome"] blur enable
-for_window [class="midori"] blur enable
-for_window [class="feh"] floating enable; move position 1300 800;
+# for_window [app_id="Alacritty"] blur enable
+# for_window [class="Google-chrome"] blur enable
+# for_window [class="midori"] blur enable
+# for_window [class="feh"] floating enable; move position 1300 800;
 
 # Custom Binds
 ## Lock screen
@@ -134,10 +134,10 @@ input type:keyboard {
     bindsym $mod+t exec $term
 
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym $mod+d kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+r exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -150,7 +150,7 @@ input type:keyboard {
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -265,25 +265,25 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+p mode "resize"
 
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position top 
-#
-#     # # When the status_command prints a new line to stdout, swaybar updates.
-#     # # The default just shows the current date and time.
-#     # status_command i3status
-#    #swaybar_command waybar
-#     # colors {
-#     #     statusline #ffffff
-#     #     background #323232
-#     #     inactive_workspace #32323200 #32323200 #5c5c5c
-#     # }
-# }
-exec eww open powermenu --screen 0
+ bar {
+     position top 
 
+     # # When the status_command prints a new line to stdout, swaybar updates.
+     # # The default just shows the current date and time.
+     status_command i3status
+     # swaybar_command swaybar
+     # colors {
+     #     statusline #ffffff
+     #     background #323232
+     #     inactive_workspace #32323200 #32323200 #5c5c5c
+     # }
+ }
+# exec eww open powermenu --screen 0
+exec "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 # include /etc/sway/config.d/*
