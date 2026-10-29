@@ -1,16 +1,14 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
-# Syntax highlighting
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Path to your oh-my-zsh installation.
+# Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
+# load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME=junkfood
+ZSH_THEME="avit"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -62,7 +60,7 @@ ZSH_THEME=junkfood
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="mm/dd/yyyy"
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -72,8 +70,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions battery)
-bindkey '^ ' autosuggest-accept
+plugins=(git kubectl autojump)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,46 +85,40 @@ source $ZSH/oh-my-zsh.sh
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#   export EDITOR='nvim'
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch $(uname -m)"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# Set personal aliases, overriding those provided by Oh My Zsh libs,
+# plugins, and themes. Aliases can be placed here, though Oh My Zsh
+# users are encouraged to define aliases within a top-level file in
+# the $ZSH_CUSTOM folder, with .zsh extension. Examples:
+# - $ZSH_CUSTOM/aliases.zsh
+# - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim='nvim'
-alias ls='eza'
-alias c='clear'
+
+
+# Aliases
+alias ls="eza"
+alias l="eza -la"
+alias c="clear"
+alias vim="nvim"
+alias lowfm="hyprctl keyword monitor DP-4,1920x1080@60,0x0,1"
+alias midfm="hyprctl keyword monitor DP-4,1920x1080@120,0x0,1"
+alias highfm="hyprctl keyword monitor DP-4,1920x1080@144,0x0,1"
+alias exti="exit"
+alias ":wq"="exit"
+alias e="exit"
+alias ssh="kitten ssh"
+alias s="kitten ssh"
+
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-eval "$(jump shell)"
-
-# Adding Cargo To PATH
-export PATH=$HOME/.cargo/bin/:$PATH
-
-# Adding meson to path
-alias meson='python3 /home/kshitij/Applications/py/meson/meson.py'
-
-# brightness control
-alias bl='sudo brightnessctl set 5%'
-alias bh='sudo brightnessctl set 50%'
-alias bm='sudo brightnessctl set 100%'
-# battery alias
-alias battery='cat /sys/class/power_supply/BAT1/capacity'
-alias bat='cat /sys/class/power_supply/BAT1/capacity'
-alias bat_status='cat /sys/class/power_supply/BAT1/status'
-alias batstat='cat /sys/class/power_supply/BAT1/status'
-
-alias journal='vim ~/Documents/projects/Journal/$(date +'%d%m%y').md'
-
-# git local ignore
-alias localignore='vim .git/info/exclude'
+export PATH="${HOME}/depot_tools:$PATH"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

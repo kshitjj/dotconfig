@@ -1,0 +1,9 @@
+input "type:keyboard" {
+  xkb_layout us
+  xkb_variant dvp
+  repeat_delay 300
+  repeat_rate 40
+  xkb_capslock disabled
+  xkb_numlock disabled
+}
+bindsym --release Super_L exec $launcher

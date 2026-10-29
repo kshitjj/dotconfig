@@ -1,0 +1,56 @@
+// Variables for dark mode
+$bg-color: #2e2e2e;           // Background color for general elements
+$text-color: #e0e0e0;         // Text color for general elements
+$hover-color: #444444;        // Hover effect background color
+$accent-color: #0099ff;       // Accent color for focused workspace
+$highlight-color: #66ccff;    // Highlight color for gradient effects
+
+// Power Menu Bar Styling
+powermen {
+  background-color: #3a3a3a;
+  color: #b0b4bc;
+  padding: 10px;
+}
+
+// Workspace Box Styling
+.workspace {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: 10px 10px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 14px;
+
+  // Hover effect
+  &:hover {
+    background-color: $hover-color;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Focused Workspace Styling
+.workspace-focused {
+  background: linear-gradient(135deg, $accent-color, $highlight-color);
+  color: $text-color;
+  padding: 5px 5px;
+  margin: 5px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 119, 255, 0.5);
+
+  // Slightly larger and with stronger hover effect
+  &:hover {
+    background: linear-gradient(135deg, $highlight-color, $accent-color);
+    box-shadow: 0 8px 20px rgba(0, 119, 255, 0.6);
+  }
+}
+
+// Flexbox container for workspaces (adjusted for Eww)
+.workspace-container {
+  padding: 10px;
+  background-color: $bg-color;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
